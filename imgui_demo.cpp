@@ -2625,6 +2625,18 @@ static void ShowExampleAppLongText(bool* p_open)
 }
 
 // End of Demo code
+
+void ImGui::ShowAdditionalFeaturesWindow(bool* p_open)
+{
+    if (!ImGui::Begin("Additional Features Window", p_open))
+    {
+        ImGui::End();
+        return;
+    }
+
+    ImGui::End();
+}
+
 #else
 
 void ImGui::ShowTestWindow(bool*) {}

@@ -45,6 +45,7 @@ int main(int, char**)
 
     bool show_test_window = true;
     bool show_another_window = false;
+    bool show_additional_features_window = true;
     ImVec4 clear_color = ImColor(114, 144, 154);
 
     // Main loop
@@ -69,6 +70,8 @@ int main(int, char**)
             ImGui::ColorEdit3("clear color", (float*)&clear_color);
             if (ImGui::Button("Test Window")) show_test_window ^= 1;
             if (ImGui::Button("Another Window")) show_another_window ^= 1;
+            if (ImGui::Button("Additional Features Window")) show_additional_features_window ^= 1;
+
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
         }
 
@@ -86,6 +89,14 @@ int main(int, char**)
         {
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
             ImGui::ShowTestWindow(&show_test_window);
+        }
+
+        // 4. Show additional features window
+        if (show_additional_features_window)
+        {
+            ImGui::SetNextWindowPos(ImVec2(40, 300), ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowSize(ImVec2(500, 100), ImGuiSetCond_FirstUseEver);
+            ImGui::ShowAdditionalFeaturesWindow(&show_additional_features_window);
         }
 
         // Rendering
