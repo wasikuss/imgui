@@ -2634,6 +2634,9 @@ void ImGui::ShowAdditionalFeaturesWindow(bool* p_open)
         return;
     }
 
+    static float f1 = -0.5f, f2 = 0.75f;
+    ImGui::RangeSliderFloat("range slider float", &f1, &f2, -1.0f, 1.0f, "(%.3f, %.3f)");
+
     ImGui::End();
 }
 
